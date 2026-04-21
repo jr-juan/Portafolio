@@ -1,5 +1,22 @@
 /* ESTILOS GENERALES */
 
+/* Canvas de fondo */
+#canvas-fondo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Asegura que el contenido quede encima del canvas */
+header, .titulo-principal, .separador-imagen, main, footer {
+    position: relative;
+    z-index: 1;
+}
+
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
 
