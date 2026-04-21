@@ -11,6 +11,7 @@ Portafolio personal desarrollado desde cero con HTML, CSS y JavaScript vanilla.
 - HTML5 semántico
 - CSS3 — Flexbox, variables personalizadas, animaciones, media queries
 - JavaScript — Canvas API, IntersectionObserver, manipulación del DOM
+- Firebase Firestore — contador de mensajes en tiempo real
 - Bootstrap Icons
 - Google Fonts — Inter, Fira Code
 
