@@ -16,7 +16,7 @@ const db = getFirestore(app);
 
 // ===== CONTADOR =====
 const LIMITE = 50;
-const refContador = doc(db, 'contador', 'mensajes');
+const refContador = doc(db, 'contador', 'mensaje');
 const contadorEl = document.createElement('p');
 contadorEl.style.cssText = 'font-size: 12px; color: var(--texto-suave); margin-bottom: 8px;';
 
