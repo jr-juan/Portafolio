@@ -1,3 +1,43 @@
+// ===== FIREBASE =====
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-app.js";
+import { getFirestore, doc, getDoc, updateDoc, increment } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-firestore.js";
+
+const firebaseConfig = {
+    apiKey: "AIzaSyDg7deQyE6JJyMeiW9kqLCFc1L4FruHQt4",
+    authDomain: "portafolio-92a15.firebaseapp.com",
+    projectId: "portafolio-92a15",
+    storageBucket: "portafolio-92a15.firebasestorage.app",
+    messagingSenderId: "13801389329",
+    appId: "1:13801389329:web:ba124eec9f07fe25c2a0b0"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+// ===== CONTADOR =====
+const LIMITE = 50;
+const refContador = doc(db, 'contador', 'mensajes');
+const contadorEl = document.createElement('p');
+contadorEl.style.cssText = 'font-size: 12px; color: var(--texto-suave); margin-bottom: 8px;';
+
+const formulario = document.querySelector('.formulario-contacto');
+formulario.insertBefore(contadorEl, formulario.firstChild);
+
+async function obtenerContador() {
+    const snap = await getDoc(refContador);
+    if (snap.exists()) {
+        const total = snap.data().total;
+        const restantes = LIMITE - total;
+        contadorEl.textContent = `Mensajes disponibles este mes: ${restantes}/50`;
+    }
+}
+
+obtenerContador();
+
+formulario.addEventListener('submit', async () => {
+    await updateDoc(refContador, { total: increment(1) });
+});
+
 // ===== CANVAS DE PARTÍCULAS =====
 const canvas = document.getElementById('canvas-fondo');
 const ctx = canvas.getContext('2d');
@@ -13,7 +53,7 @@ window.addEventListener('resize', () => {
 const CANTIDAD = 80;
 const DISTANCIA_MAX = 150;
 const VELOCIDAD = 0.4;
-const COLOR = '124, 106, 247'; // color acento en RGB
+const COLOR = '124, 106, 247';
 
 const particulas = [];
 
@@ -30,23 +70,19 @@ for (let i = 0; i < CANTIDAD; i++) {
 function animar() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    // Mover y dibujar partículas
     particulas.forEach(p => {
         p.x += p.vx;
         p.y += p.vy;
 
-        // Rebotar en los bordes
         if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
         if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
 
-        // Dibujar punto
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.radio, 0, Math.PI * 2);
         ctx.fillStyle = `rgba(${COLOR}, 0.5)`;
         ctx.fill();
     });
 
-    // Dibujar líneas entre partículas cercanas
     for (let i = 0; i < particulas.length; i++) {
         for (let j = i + 1; j < particulas.length; j++) {
             const dx = particulas[i].x - particulas[j].x;
@@ -70,7 +106,7 @@ function animar() {
 
 animar();
 
-// SCROLL OBSERVER para animar secciones al entrar en pantalla
+// ===== SCROLL OBSERVER =====
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -84,39 +120,6 @@ const observer = new IntersectionObserver((entries) => {
 const secciones = document.querySelectorAll('.contenido section');
 secciones.forEach(seccion => observer.observe(seccion));
 
-
-
-
-// ===== CONTADOR DE MENSAJES =====
-const LIMITE = 50;
-const mesActual = new Date().getMonth();
-const mesGuardado = localStorage.getItem('mes');
-
-// Si cambió el mes, reinicia el contador
-if (mesGuardado !== String(mesActual)) {
-    localStorage.setItem('mes', mesActual);
-    localStorage.setItem('mensajes', 0);
-}
-
-const mensajesEnviados = parseInt(localStorage.getItem('mensajes')) || 0;
-const restantes = LIMITE - mensajesEnviados;
-
-// Muestra el contador encima del formulario
-const contadorEl = document.createElement('p');
-contadorEl.style.cssText = 'font-size: 12px; color: var(--texto-suave); margin-bottom: 8px;';
-contadorEl.textContent = `Mensajes disponibles este mes: ${restantes}/50`;
-
-const formulario = document.querySelector('.formulario-contacto');
-formulario.insertBefore(contadorEl, formulario.firstChild);
-
-// Al enviar, descuenta uno
-formulario.addEventListener('submit', () => {
-    localStorage.setItem('mensajes', mensajesEnviados + 1);
-});
-
-
-
-
 // ===== BOTÓN CV =====
 const btnCV = document.getElementById('btn-cv');
 const mensajeCV = document.createElement('p');
@@ -126,6 +129,6 @@ mensajeCV.style.cssText = 'color: var(--texto-suave); font-size: 13px; margin-to
 btnCV.parentElement.appendChild(mensajeCV);
 
 btnCV.addEventListener('click', () => {
-    mensajeCV.style.display = 
+    mensajeCV.style.display =
         mensajeCV.style.display === 'none' ? 'block' : 'none';
 });
