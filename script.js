@@ -83,3 +83,49 @@ const observer = new IntersectionObserver((entries) => {
 
 const secciones = document.querySelectorAll('.contenido section');
 secciones.forEach(seccion => observer.observe(seccion));
+
+
+
+
+// ===== CONTADOR DE MENSAJES =====
+const LIMITE = 50;
+const mesActual = new Date().getMonth();
+const mesGuardado = localStorage.getItem('mes');
+
+// Si cambió el mes, reinicia el contador
+if (mesGuardado !== String(mesActual)) {
+    localStorage.setItem('mes', mesActual);
+    localStorage.setItem('mensajes', 0);
+}
+
+const mensajesEnviados = parseInt(localStorage.getItem('mensajes')) || 0;
+const restantes = LIMITE - mensajesEnviados;
+
+// Muestra el contador encima del formulario
+const contadorEl = document.createElement('p');
+contadorEl.style.cssText = 'font-size: 12px; color: var(--texto-suave); margin-bottom: 8px;';
+contadorEl.textContent = `Mensajes disponibles este mes: ${restantes}/50`;
+
+const formulario = document.querySelector('.formulario-contacto');
+formulario.insertBefore(contadorEl, formulario.firstChild);
+
+// Al enviar, descuenta uno
+formulario.addEventListener('submit', () => {
+    localStorage.setItem('mensajes', mensajesEnviados + 1);
+});
+
+
+
+
+// ===== BOTÓN CV =====
+const btnCV = document.getElementById('btn-cv');
+const mensajeCV = document.createElement('p');
+mensajeCV.textContent = 'CV en construcción — escríbeme por la sección de contacto.';
+mensajeCV.style.cssText = 'color: var(--texto-suave); font-size: 13px; margin-top: 10px; display: none;';
+
+btnCV.parentElement.appendChild(mensajeCV);
+
+btnCV.addEventListener('click', () => {
+    mensajeCV.style.display = 
+        mensajeCV.style.display === 'none' ? 'block' : 'none';
+});
