@@ -2,7 +2,7 @@
 
 Portafolio personal desarrollado desde cero con HTML, CSS y JavaScript vanilla.
 
-**Sitio en vivo:** https://jr-juan.github.io/portafolio
+**Sitio en vivo:** https://jr-juan.github.io/Portafolio
 
 ---
 
