@@ -1,0 +1,296 @@
+/* ESTILOS GENERALES */
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+
+    /* Nav más compacto */
+      .seccion-navegacion a {
+        padding: 8px 16px;
+        font-size: 13px;
+        flex: 1;              /* todos ocupan el mismo ancho */
+        text-align: center;
+        min-width: 80px;
+    }
+
+    /* Imagen de perfil más pequeña */
+     .imagen-perfil {
+        width: 120px; /* un poco más pequeña */
+    }
+
+    /* Menos padding lateral */
+    .contenido {
+        padding: 12px;
+    }
+
+    /* Título más pequeño */
+    .titulo-principal {
+        padding: 24px 0;
+    }
+}
+
+h2 {
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  color: var(--texto);
+  border-bottom: 2px solid var(--acento);
+  padding-bottom: 8px;
+}
+
+
+
+/* VARIABLES DE COLOR */
+:root {
+  --fondo: #0f0f13;
+  --superficie: #1a1a24;
+  --borde: #2a2a3a;
+  --acento: #7c6af7;
+  --texto: #e2e8f0;
+  --texto-suave: #94a3b8;
+}
+
+
+
+/* Cuerpo de la página */
+.cuerpo {
+  background-color: var(--fondo);
+  color: var(--texto);
+  font-family: "Inter", sans-serif;
+}
+
+
+
+
+/* Sección de navegación */
+.seccion-navegacion {
+  background-color: var(--superficie);
+  text-align: center;
+  border-bottom: 2px solid var(--borde);
+  padding: 10px 0px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.seccion-navegacion nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.seccion-navegacion a {
+  color: white;
+  padding: 10px 50px;
+  display: inline-block;
+  transition: background-color 0.8s ease;
+}
+
+.seccion-navegacion a:hover {
+  background-color: var(--borde);
+}
+
+
+
+
+/* Título principal */
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.titulo-principal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 0;
+  margin-bottom: 20px;
+  animation: aparecer 0.8s ease forwards;
+}
+
+.titulo-principal h3 {
+  color: var(--acento);
+  font-family: "Fira Code", monospace;
+}
+
+/* Imagen */
+.separador-imagen {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.imagen-perfil {
+  width: 220px;
+  border-radius: 50%;
+  border: 3px solid var(--borde);
+  box-shadow:
+    0 0 0 4px var(--superficie),
+    0 0 0 7px var(--acento);
+  animation: aparecer 1s ease forwards;
+}
+
+
+
+
+/* Contenido principal */
+.contenido {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Estado inicial — invisible y abajo */
+.contenido section {
+  background-color: var(--superficie);
+  border: 1px solid var(--borde);
+  margin-bottom: 40px;
+  padding: 20px;
+  border-radius: 8px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  scroll-margin-top: 110px;
+}
+
+/* Cuando JS agrega la clase 'visible' */
+.contenido section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.contenido section li {
+  margin-bottom: 12px;
+  line-height: 1.6;
+}
+
+
+
+
+/* Tarjetas de proyectos */
+
+.tarjetas-proyectos {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.tarjeta {
+  background-color: var(--superficie);
+  border: 1px solid var(--borde);
+  border-radius: 12px;
+  padding: 24px;
+  flex: 1;
+  min-width: 200px;
+  text-align: center;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.tarjeta i {
+  color: var(--acento);
+  font-size: 40px;
+}
+
+.tarjeta:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+
+
+/* Link de repositorio en tarjeta */
+.tarjeta-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 12px;
+    font-size: 13px;
+    color: var(--acento);
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.tarjeta-link:hover {
+    opacity: 0.7;
+}
+
+.tarjeta-link i {
+    font-size: 15px;
+    color: var(--acento);
+}
+
+
+/* Contacto */
+.contacto-links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 16px;
+}
+
+.contacto-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--texto-suave);
+    text-decoration: none;
+    padding: 12px 16px;
+    border: 1px solid var(--borde);
+    border-radius: 8px;
+    transition: border-color 0.3s ease, color 0.3s ease;
+}
+
+.contacto-item i {
+    font-size: 20px;
+    color: var(--acento);
+}
+
+.contacto-item:hover {
+    border-color: var(--acento);
+    color: var(--texto);
+}
+
+
+
+
+
+
+/* Botón CV */
+.btn-cv {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 16px;
+    padding: 12px 28px;
+    background-color: var(--acento);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.btn-cv p {
+    font-size: 20px;
+}
+
+.btn-cv:hover {
+    opacity: 0.85;
+    transform: translateY(-2px);
+}
+
+
+/* Pie de página */
+.pie-pagina {
+  text-align: center;
+  padding: 10px;
+}
