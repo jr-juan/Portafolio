@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portafolio</title>
+
+    <!-- Enlace a Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Fira+Code:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Enlace a tu archivo CSS -->
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Enlace a Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+  </head>
+
+  <body class="cuerpo">
+    <!-- BARRA DE NAVEGACIÓN -->
+    <header class="seccion-navegacion">
+      <nav>
+        <a href="#sobre-mi">Sobre mi</a>
+
+        <a href="#proyectos">Proyectos</a>
+
+        <a href="#contacto">Contacto</a>
+
+        <a href="#hoja-de-vida">CV</a>
+      </nav>
+    </header>
+
+    <!-- TITULO PRINCIPAL -->
+    <div class="titulo-principal">
+      <h3>Juan Cuero</h3>
+      <em>Ingeniero de sistemas</em>
+    </div>
+
+    <!-- IMAGEN DE PERFIL -->
+
+    <div class="separador-imagen">
+      <img class="imagen-perfil" src="imagenes/yo.jpeg" />
+    </div>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="contenido">
+      <section id="sobre-mi">
+        <h2>Sobre mí</h2>
+        <p>
+          Estudiante de último semestre de Ingeniería de Sistemas con seis meses
+          de experiencia en proyectos productivos para clientes del sector
+          agroindustrial.
+        </p>
+        <p>
+          Desarrollo web backend y móvil con <strong>Java</strong>,
+          <strong>Spring Boot</strong>, <strong>MariaDB</strong> y
+          <strong>Android Studio</strong>. Manejo <strong>Firebase</strong>,
+          <strong>Supabase</strong>, <strong>Angular</strong>,
+          <strong>Flutter</strong> básico y desarrollo frontend con
+          <strong>HTML</strong>, <strong>CSS</strong> y
+          <strong>JavaScript</strong>. Aprendiendo <strong>AWS</strong>.
+        </p>
+        <p>
+          He trabajado de manera remota, desarrollando software a medida y
+          explicando funcionalidades a clientes. Me adapto rápido y me gusta
+          construir cosas que funcionen.
+        </p>
+      </section>
+
+      <section id="proyectos">
+        <h2>Proyectos</h2>
+        <div class="tarjetas-proyectos">
+          <div class="tarjeta">
+            <i class="bi bi-globe"></i>
+            <h3>App de Monitoreo</h3>
+            <p>
+              Plataforma web con MapBox, Firebase y Angular para gestión de
+              rutas y vehículos en tiempo real.
+            </p>
+            <a
+              href="https://github.com/jr-juan/Proyecto-Angular/tree/semana7-Proyecto-API"
+              target="_blank"
+              class="tarjeta-link"
+            >
+              <i class="bi bi-github"></i> Ver repositorio
+            </a>
+          </div>
+
+          <div class="tarjeta">
+            <i class="bi bi-phone"></i>
+            <h3>App de Conductores</h3>
+            <p>
+              Aplicación móvil en Ionic para que conductores gestionen sus
+              recorridos en tiempo real usando GPS y MapBox.
+            </p>
+            <a
+              href="https://github.com/jr-juan/App-Chofer"
+              target="_blank"
+              class="tarjeta-link"
+            >
+              <i class="bi bi-github"></i> Ver repositorio
+            </a>
+          </div>
+
+          <div class="tarjeta">
+            <i class="bi bi-heart"></i>
+            <h3>App de Cuidado</h3>
+            <p>
+              App móvil en Ionic para ciudadanos, con visualización en tiempo
+              real del estado de vehículos en MapBox.
+            </p>
+            <a
+              href="https://github.com/jr-juan/App-Ciudadano"
+              target="_blank"
+              class="tarjeta-link"
+            >
+              <i class="bi bi-github"></i> Ver repositorio
+            </a>
+          </div>
+
+          <div class="tarjeta">
+            <i class="bi bi-wallet"></i>
+            <h3>App de Finanzas</h3>
+            <p>Gestión de gastos personales con Flutter y Supabase.</p>
+            <a
+              href="https://github.com/jr-juan/Numy"
+              target="_blank"
+              class="tarjeta-link"
+            >
+              <i class="bi bi-github"></i> Ver repositorio
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section id="contacto">
+        <h2>Contacto</h2>
+        <p>¿Quieres contactarme? Escríbeme.</p>
+
+        <div class="contacto-links">
+          <a href="mailto:juan@gmail.com" class="contacto-item">
+            <i class="bi bi-envelope"></i>
+            juancuero538@gmail.com
+          </a>
+          <a
+            href="https://linkedin.com/in/juan-román-cuero-ordóñez-6071803b4"
+            target="_blank"
+            class="contacto-item"
+          >
+            <i class="bi bi-linkedin"></i>
+            LinkedIn
+          </a>
+          <a
+            href="https://github.com/jr-juan"
+            target="_blank"
+            class="contacto-item"
+          >
+            <i class="bi bi-github"></i>
+            GitHub
+          </a>
+        </div>
+      </section>
+
+      <section id="hoja-de-vida">
+        <h2>Hoja de Vida</h2>
+        <p>¿Quieres saber más sobre mi experiencia?</p>
+        <a href="documentos/cv.pdf" download class="btn-cv">
+          <i class="bi bi-file-earmark-arrow-down"></i>
+          Descargar CV
+        </a>
+      </section>
+    </main>
+
+    <!-- FINAL DE LA PAGINA -->
+    <footer class="pie-pagina">
+      <em>Gracias por ver :D</em>
+      <p>© 2026 Juan Cuero. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- SCRIPT -->
+    <script src="script.js"></script>
+  </body>
+</html>
