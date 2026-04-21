@@ -21,10 +21,8 @@
   </head>
 
   <body class="cuerpo">
-
     <!-- CANVAS DE FONDO -->
     <canvas id="canvas-fondo"></canvas>
-
 
     <!-- BARRA DE NAVEGACIÓN -->
     <header class="seccion-navegacion">
@@ -170,22 +168,48 @@
         </div>
       </section>
 
-     <section id="hoja-de-vida">
-    <h2>Hoja de Vida</h2>
-    <div class="cv-card">
-        <div class="cv-info">
+      <section id="hoja-de-vida">
+        <h2>Hoja de Vida</h2>
+
+        <!-- Tarjeta CV -->
+        <div class="cv-card">
+          <div class="cv-info">
             <i class="bi bi-file-earmark-person"></i>
             <div>
-                <h3>Juan Roman Cuero Ordóñez</h3>
-                <span>Disponible para trabajar</span>
+              <h3>Juan Roman Cuero Ordóñez</h3>
+              <span>Disponible para trabajar</span>
             </div>
-        </div>
-        <a href="documentos/cv.pdf" download class="btn-cv">
+          </div>
+          <a href="documentos/cv.pdf" download class="btn-cv">
             <i class="bi bi-file-earmark-arrow-down"></i>
             Descargar CV
-        </a>
-    </div>
-</section>
+          </a>
+        </div>
+
+        <!-- Formulario separado -->
+        <form
+          class="formulario-contacto"
+          action="https://formspree.io/f/xjgjeazj"
+          method="POST"
+        >
+          <h3 class="form-titulo">¿Tienes algo que decirme?</h3>
+          <div class="form-grupo">
+            <input type="text" name="nombre" placeholder="Tu nombre" required />
+          </div>
+          <div class="form-grupo">
+            <textarea
+              name="mensaje"
+              rows="4"
+              placeholder="Escríbeme lo que quieras — sugerencias, propuestas o simplemente un saludo."
+              required
+            ></textarea>
+          </div>
+          <button type="submit" class="btn-enviar">
+            <i class="bi bi-send"></i>
+            Enviar
+          </button>
+        </form>
+      </section>
     </main>
 
     <!-- FINAL DE LA PAGINA -->
