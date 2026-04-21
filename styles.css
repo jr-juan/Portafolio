@@ -355,6 +355,69 @@ h2 {
 }
 
 
+
+
+/* Formulario de contacto */
+.form-titulo {
+    color: var(--texto-suave);
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 8px;
+}
+
+.formulario-contacto {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.form-grupo input,
+.form-grupo textarea {
+    width: 100%;
+    background-color: var(--fondo);
+    border: 1px solid var(--borde);
+    border-radius: 8px;
+    padding: 10px 14px;
+    color: var(--texto);
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.form-grupo input:focus,
+.form-grupo textarea:focus {
+    border-color: var(--acento);
+}
+
+.btn-enviar {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 24px;
+    background-color: var(--acento);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    cursor: pointer;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    align-self: flex-start;
+}
+
+.btn-enviar:hover {
+    opacity: 0.85;
+    transform: translateY(-2px);
+}
+
+
+
+
+
 /* Pie de página */
 .pie-pagina {
   text-align: center;
